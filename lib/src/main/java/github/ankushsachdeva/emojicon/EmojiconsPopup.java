@@ -61,7 +61,7 @@ public class EmojiconsPopup extends PopupWindow implements ViewPager.OnPageChang
 	private Boolean pendingOpen = false;
 	private Boolean isOpened = false;
 	OnEmojiconClickedListener onEmojiconClickedListener;
-	OnEmojiconBackspaceClickedListener onEmojiconBackspaceClickedListener; 
+	OnEmojiconBackspaceClickedListener onEmojiconBackspaceClickedListener;
 	OnSoftKeyboardOpenCloseListener onSoftKeyboardOpenCloseListener;
 	View rootView;
 	Context mContext;
@@ -79,14 +79,14 @@ public class EmojiconsPopup extends PopupWindow implements ViewPager.OnPageChang
 		View customView = createCustomView();
 		setContentView(customView);
 		setSoftInputMode(LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-		//default size 
+		//default size
 		setSize((int) mContext.getResources().getDimension(R.dimen.keyboard_height), LayoutParams.MATCH_PARENT);
 	}
 	/**
 	 * Set the listener for the event of keyboard opening or closing.
 	 */
 	public void setOnSoftKeyboardOpenCloseListener(OnSoftKeyboardOpenCloseListener listener){
-		this.onSoftKeyboardOpenCloseListener = listener; 
+		this.onSoftKeyboardOpenCloseListener = listener;
 	}
 
 	/**
@@ -105,20 +105,20 @@ public class EmojiconsPopup extends PopupWindow implements ViewPager.OnPageChang
 
 	/**
 	 * Use this function to show the emoji popup.
-	 * NOTE: Since, the soft keyboard sizes are variable on different android devices, the 
+	 * NOTE: Since, the soft keyboard sizes are variable on different android devices, the
 	 * library needs you to open the soft keyboard atleast once before calling this function.
 	 * If that is not possible see showAtBottomPending() function.
-	 * 
+	 *
 	 */
 	public void showAtBottom(){
 		showAtLocation(rootView, Gravity.BOTTOM, 0, 0);
 	}
 	/**
-	 * Use this function when the soft keyboard has not been opened yet. This 
+	 * Use this function when the soft keyboard has not been opened yet. This
 	 * will show the emoji popup after the keyboard is up next time.
-	 * Generally, you will be calling InputMethodManager.showSoftInput function after 
+	 * Generally, you will be calling InputMethodManager.showSoftInput function after
 	 * calling this function.
-	 */ 
+	 */
 	public void showAtBottomPending(){
 		if(isKeyBoardOpen())
 			showAtBottom();
@@ -127,7 +127,7 @@ public class EmojiconsPopup extends PopupWindow implements ViewPager.OnPageChang
 	}
 
 	/**
-	 * 
+	 *
 	 * @return Returns true if the soft keyboard is open, false otherwise.
 	 */
 	public Boolean isKeyBoardOpen(){
@@ -167,7 +167,7 @@ public class EmojiconsPopup extends PopupWindow implements ViewPager.OnPageChang
 				if (heightDifference > 100) {
 					keyBoardHeight = heightDifference;
 					setSize(LayoutParams.MATCH_PARENT, keyBoardHeight);
-					if(isOpened == false){
+					if(!isOpened){
 						if(onSoftKeyboardOpenCloseListener!=null)
 							onSoftKeyboardOpenCloseListener.onKeyboardOpen(keyBoardHeight);
 					}
@@ -184,17 +184,17 @@ public class EmojiconsPopup extends PopupWindow implements ViewPager.OnPageChang
 				}
 			}
 		});
-	}	
+	}
 
-	private int getUsableScreenHeight() {	    
+	private int getUsableScreenHeight() {
 	    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
 	    	DisplayMetrics metrics = new DisplayMetrics();
-	    	
+
 	    	WindowManager windowManager = (WindowManager) mContext.getSystemService(Context.WINDOW_SERVICE);
-	        windowManager.getDefaultDisplay().getMetrics(metrics);	 
-	        
+	        windowManager.getDefaultDisplay().getMetrics(metrics);
+
 	        return metrics.heightPixels;
-	        
+
 	    } else {
 	    	return rootView.getRootView().getHeight();
 	    }

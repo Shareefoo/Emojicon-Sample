@@ -1002,7 +1002,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name github.ankushsachdeva.emojicon:emojiconSize
         */
-        public static final int Emojicon_emojiconSize = 0;
+        public static int Emojicon_emojiconSize = 0;
         /**
           <p>This symbol is the offset where the {@link github.ankushsachdeva.emojicon.R.attr#emojiconTextLength}
           attribute's value can be found in the {@link #Emojicon} array.
@@ -1016,7 +1016,7 @@ theme attribute (in the form
 containing a value of this type.
           @attr name github.ankushsachdeva.emojicon:emojiconTextLength
         */
-        public static final int Emojicon_emojiconTextLength = 2;
+        public static int Emojicon_emojiconTextLength = 2;
         /**
           <p>This symbol is the offset where the {@link github.ankushsachdeva.emojicon.R.attr#emojiconTextStart}
           attribute's value can be found in the {@link #Emojicon} array.
@@ -1030,6 +1030,6 @@ theme attribute (in the form
 containing a value of this type.
           @attr name github.ankushsachdeva.emojicon:emojiconTextStart
         */
-        public static final int Emojicon_emojiconTextStart = 1;
+        public static int Emojicon_emojiconTextStart = 1;
     };
 }
